@@ -24,7 +24,7 @@ function App() {
       isDone: true,
     },
   ]);
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(""); // setState는 비동기이다 => data를 받아오기전에 실행//setState안에 콜백함수릀이용하여 동기적으로 가능!
   const [content, setContent] = useState("");
   const titleInput = (event) => setTitle(event.target.value);
   const contentInput = (event) => setContent(event.target.value);
@@ -41,6 +41,23 @@ function App() {
     setTitle("");
     setContent("");
   };
+
+  //togglebtn은 isdone상태를 바꿔준다.!
+  //isdone을 바꿔서 setTodo
+  //토글 btn 이들어가면서 작동은 한ㄷㅏ=>setTodo를 함수가아니라 토글로 리턴한무어나ㅣ검ㄴㅇ래ㅔㅑㅁ언랴ㅐㅔ먼ㅇ
+  // const toggleBtn = function (item) {
+  //   // let toggleObj = item; //이걸 냅따 던지면 기존 todo가 사라지지 않아서 고장난다아아아
+  //   // function aaa(item) {
+  //   if (item.isDone === false) {
+  //     item.isDone = true;
+  //     // return (toggleObj = item);
+  //   } else if (item.isDone === true) {
+  //     item.isDone = false;
+  //     // return (toggleObj = item);
+  //   }
+  //   // }
+  //   setTodo([...todo]); //zㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ ,.....  왜 굳이 더 넣으려 했냐? 그냥 한번 풀었다가 묶으면 되는것을....
+  // };
 
   return (
     <div className="todo-body">
