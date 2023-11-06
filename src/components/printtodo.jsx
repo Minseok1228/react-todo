@@ -1,8 +1,8 @@
 import Button from "./btn";
-const PrintTodo = ({ todo, setTodo, isDone, btnType }) => {
+const PrintTodo = ({ todos, setTodos, isDone, btnType }) => {
   const DeleteBtn = function (item) {
-    const remainTodoList = todo.filter((todo) => todo.id !== item.id);
-    setTodo(remainTodoList);
+    const remainTodoList = todos.filter((todos) => todos.id !== item.id);
+    setTodos(remainTodoList);
   };
   const toggleBtn = function (item) {
     if (item.isDone === false) {
@@ -10,18 +10,17 @@ const PrintTodo = ({ todo, setTodo, isDone, btnType }) => {
     } else if (item.isDone === true) {
       item.isDone = false;
     }
-    setTodo([...todo]);
+    setTodos([...todos]);
   };
-  const todoList = todo.filter(function (todo) {
-    return todo.isDone === isDone;
+  const todoList = todos.filter(function (todos) {
+    return todos.isDone === isDone;
   });
 
   return todoList.map(function (item) {
     return (
-      <li key={item.id} className="todo">
-        {item.title}
-        <br />
-        {item.content}
+      <li key={item.id} className="todos">
+        <span>{item.title}</span>
+        <span>{item.content}</span>
         <div className="btn-box">
           <Button btnFunc={DeleteBtn} item={item}>
             삭제
